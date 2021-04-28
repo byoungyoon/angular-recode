@@ -17,6 +17,11 @@ export class StudentsComponent implements OnInit {
     this.getStudents();
   }
 
+  delete(student: Student): void{
+    this.students = this.students.filter(data=> data !== student);
+    this.studentService.deleteStudent(student.id).subscribe();
+  }
+
   getStudents(): void{
     this.studentService.getStudents().subscribe(students=> this.students = students)
   }

@@ -1,0 +1,35 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="add-form">
+    <table class="full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" placeholder="Ex. 홍길동" />
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select disableRipple formControlName="gender">
+                        <mat-option value="">선택 없음</mat-option>
+                        <mat-option value="man">man</mat-option>
+                        <mat-option value="woman">woman</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label>Score</mat-label>
+                    <input matInput type="number" formControlName="score" placeholder="Ex. 95" />
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <button class="button" type="submit">+Student</button>
+    </div>
+</form>

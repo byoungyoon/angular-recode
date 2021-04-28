@@ -1,11 +1,17 @@
 <div class="content" role="main">
 
-  <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
-    <h2>Recode</h2>
-    <app-students></app-students>
-    
-  </div>
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>Recode</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <router-outlet></router-outlet>
+    </mat-card-content>
+    <mat-card-actions>
+      <button routerLink="/studentAdd" mat-button>추가</button>
+      <button routerLink="/students" mat-button>홈</button>
+    </mat-card-actions>
+  </mat-card>
   
   
   <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
