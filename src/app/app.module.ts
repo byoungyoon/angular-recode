@@ -17,12 +17,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { StudentAddComponent } from './students/student-add/student-add.component';
 import { StudentRoutingModule } from './students/student-routing/student-routing.module';
+import { StudentDetailComponent } from './students/student-detail/student-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
-    StudentAddComponent
+    StudentAddComponent,
+    StudentDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,10 @@ export class StudentService {
     headers : new HttpHeaders({'Context-Type' : 'application/json'})
   }
 
+  addStduent(student: Student): Observable<Student>{
+    return this.http.post<Student>(this.studentUrl, student, this.httpOptions);
+  }
+
   deleteStudent(id: number): Observable<Student>{
     const url = `${this.studentUrl}/${id}`;
 
@@ -27,5 +31,10 @@ export class StudentService {
 
   getStudents(): Observable<Student[]>{
     return this.http.get<Student[]>(this.studentUrl);
+  }
+
+  getStudent(id: number): Observable<Student>{
+    const url = `${this.studentUrl}/${id}`;
+    return this.http.get<Student>(url);
   }
 }
