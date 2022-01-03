@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from '../student';
@@ -17,21 +17,32 @@ export class StudentDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private StudentService: StudentService
-    ) { }
+  ) { }
     
-    ngOnInit(): void {
-      this.getStudent();
-    }
-
-  handleModifyForm(): void{
-    this.modifyForm = !this.modifyForm;
-
+  ngOnInit(): void {
     this.formGroup = new FormGroup({
       name: new FormControl("",[
         Validators.required,
         Validators.minLength(2)
+      ]),
+      gender: new FormControl("",[
+        Validators.required
       ])
     });
+    this.getStudent();
+    
+  }
+
+  ngAfterContentInit(): void{
+    this.formGroup.patchValue({
+      name: this.student.name,
+      gender: this.student.gender
+    });
+  }
+
+  handleModifyForm(): void{
+    this.modifyForm = !this.modifyForm;
+    
   }
 
   getStudent(): void{

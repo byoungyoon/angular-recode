@@ -1,18 +1,28 @@
-<form [formGroup]="formGroup" *ngIf="student">
+<form [formGroup]="formGroup">
     <table cellspacing="0">
         <tr>
             <td>
-                <mat-form-field *ngIf="modifyForm">
-                    <mat-label>Name</mat-label>
-                        <input type="text" matInput value="{{student.name}}" formControlName="name" />
-                        <mat-error *ngIf="!formGroup.controls.name.hasError('required')">
-                            Name is <strong>At least 2</strong>
-                        </mat-error>
-                </mat-form-field>
-                <mat-form-field *ngIf="!modifyForm">
-                    <mat-label>Name</mat-label>
-                    <input type="text" matInput value="{{student.name}}" [disabled]="modifyForm? null: true" />
-                </mat-form-field>
+                <div>
+                    <mat-form-field *ngIf="modifyForm">
+                        <mat-label>Name</mat-label>
+                            <input type="text" matInput formControlName="name" />
+                            <mat-error *ngIf="!formGroup.controls.name.hasError('required')">
+                                Name is <strong>At least 2</strong>
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+                <div *ngIf="!modifyForm">
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input type="text" matInput formControlName="name" />
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Gender</mat-label>
+                        <mat-select disableRipple formControlName="gender">
+                            <mat-option>1</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
             </td>
         </tr>
     </table>
